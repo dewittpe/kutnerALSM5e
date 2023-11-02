@@ -2,7 +2,7 @@ Package: kutnerALST5e
 Title: Applied Linear Statistical Models 5th edition by Kutner, Nachtsheim, Neter, and Li
 Version: 0.0.0.9000
 Authors@R: c(
-    person(given = "Peter", family = "DeWitt",  email = "dewittpe@gmail.com", role = c("aut", "cre"))),
+    person(given = "Peter", family = "DeWitt",  email = "dewittpe@gmail.com", role = c("aut", "cre"))
     )
 Description: A reproduction of the book "Applied Linear Statistical Models 5th
     edition" by Kutner, Nachtsheim, Neter, and Li.  Datasets and vignettes for
@@ -14,3 +14,4 @@ Language: en-us
 LazyData: true
 Imports:
 VignetteBuilder: knitr
+RoxygenNote: 7.2.3
