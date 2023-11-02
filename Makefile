@@ -22,9 +22,10 @@ TESTS     = $(wildcard $(PKG_ROOT)/tests/*.R)
 # These are both targets for building and dependencies for the package tar.gz
 # file
 VIGNETTES  = $(PKG_ROOT)/vignettes/kutnerALSM5e-00-preface.Rmd
+VIGNETTES  = $(PKG_ROOT)/vignettes/kutnerALSM5e-Appendix-C-Data-Sets.Rmd
 
 ## Data targets
-DATATARGETS  = $(PKG_ROOT)/data/mtcars2.rda
+DATATARGETS  = $(PKG_ROOT)/data/SENIC.rda
 
 ################################################################################
 # Recipes
@@ -62,7 +63,7 @@ $(PKG_ROOT)/vignettes/%.Rmd : $(PKG_ROOT)/vignette-spinners/%.R
 ################################################################################
 # Data Sets
 #
-$(DATATARGETS) &: vignette-spinners/kutnerALSM5e-00-datasets.R
+$(DATATARGETS) &: vignette-spinners/kutnerALSM5e-Appendix-C-Data-Sets.R
 	Rscript --vanilla --quiet $<
 
 ################################################################################

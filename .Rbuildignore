@@ -4,3 +4,4 @@
 ^\.github$
 ^.*\.Rout
 ^.*\.tar\.gz
+^Makefile$

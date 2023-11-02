@@ -14,6 +14,7 @@ producing graphics, models, etc.
 Useful links:
 \itemize{
   \item \url{https://github.com/dewittpe/kutnerALST5e}
+  \item \url{http://www.peteredewitt.com/kutnerALSM5e/}
 }
 
 }

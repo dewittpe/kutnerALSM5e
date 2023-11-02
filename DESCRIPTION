@@ -7,6 +7,8 @@ Authors@R: c(
 Description: A reproduction of the book "Applied Linear Statistical Models 5th
     edition" by Kutner, Nachtsheim, Neter, and Li.  Datasets and vignettes for
     each chapter of the book.
+Depends:
+    R (>= 3.5.0)
 License: GPL-2
 Encoding: UTF-8
 URL: https://github.com/dewittpe/kutnerALST5e, http://www.peteredewitt.com/kutnerALSM5e/
