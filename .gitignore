@@ -1,0 +1,4 @@
+docs
+.install_dev_deps.Rout
+*.tar.gz
+*.Rout

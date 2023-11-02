@@ -23,6 +23,9 @@ TESTS     = $(wildcard $(PKG_ROOT)/tests/*.R)
 # file
 VIGNETTES  = $(PKG_ROOT)/vignettes/kutnerALSM5e-00-preface.Rmd
 
+## Data targets
+DATATARGETS  = $(PKG_ROOT)/data/mtcars2.rda
+
 ################################################################################
 # Recipes
 
@@ -55,6 +58,12 @@ $(PKG_NAME)_$(PKG_VERSION).tar.gz: .install_dev_deps.Rout .document.Rout $(VIGNE
 $(PKG_ROOT)/vignettes/%.Rmd : $(PKG_ROOT)/vignette-spinners/%.R
 	R --vanilla --quiet -e "knitr::spin(hair = '$<', knit = FALSE)"
 	mv $(basename $<).Rmd $@
+
+################################################################################
+# Data Sets
+#
+$(DATATARGETS) &: vignette-spinners/kutnerALSM5e-00-datasets.R
+	Rscript --vanilla --quiet $<
 
 ################################################################################
 # Other Recipes for checking the package, (un)installing, and cleaning the

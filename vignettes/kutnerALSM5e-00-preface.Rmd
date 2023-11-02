@@ -1,0 +1,27 @@
+---
+title: "kutnerALSM5e Preface"
+output:
+ rmarkdown::html_vignette:
+   toc: true
+   number_sections: true
+bibliography: references.bib
+vignette: >
+ %\VignetteIndexEntry{kutnerALSM5e Preface}
+ %\VignetteEngine{knitr::rmarkdown}
+ %\VignetteEncoding{UTF-8}
+---
+
+
+```{r}
+library(kutnerALSM5e)
+packageVersion("kutnerALSM5e")
+```
+
+
+
+# Session Info
+
+```{r label = "sessioninfo"}
+sessionInfo()
+```
+
