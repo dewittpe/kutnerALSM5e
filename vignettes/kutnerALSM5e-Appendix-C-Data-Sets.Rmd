@@ -34,6 +34,23 @@ Each line of the data set has an identification number and provides
 information on 11 other variable for the single hospital.  The data presented
 here are for the 1975-76 study period.  The 12 variables are:
 
+| Variable Number | Variable Name                     | Description                                                                                                                                                  |
+| :-              | :----                             | :------                                                                                                                                                      |
+| 1               | id                                | Identification Number: 1- 113                                                                                                                                |
+| 2               | length_of_stay                    | Average length of stay of all patients in hospital (in days)                                                                                                 |
+| 3               | age                               | Average age of patients (in years)                                                                                                                           |
+| 4               | infection_risk                    | Average estimated probability of acquiring infection in hospital (in percent)                                                                                |
+| 5               | culturing_ratio                   | Ratio of number of cultures performed to number of patients without signs or symptoms of hospital-acquired infection, times 100                              |
+| 6               | chest_x_ray_ratio                 | Ratio of number of X-ray performed to number of patients without signs or symptoms of pneumonia, times 100                                                   |
+| 7               | number_of_beds                    | Average number of beds in hospital during study period                                                                                                       |
+| 8               | medical_school_affiliation        | 1 = Yes, 2 = No                                                                                                                                              |
+| 9               | region                            | Geographic Region, where 1 = NE, 2 = NC, 3 = S, 4 = W                                                                                                        |
+| 10              | average_daily_census              | Average number of patients in hospital per day during study period                                                                                           |
+| 11              | number_of_nurses                  | Average number of full-time equivalent registered and licensed practical nurses during study period (number of full time plus one half the number part time) |
+| 12              | available_facilities_and_services | Percent of 35 potential facilities and services that are provided by the hospital                                                                            |
+
+To load the data into R use the following code.
+
 
 ```{r label = "data_c1_data_dict", echo = TRUE, results = "asis"}
 SENIC <-
@@ -42,7 +59,7 @@ SENIC <-
   , header = FALSE
   , col.names = c(
       "id"
-    , "lenght_of_stay"
+    , "length_of_stay"
     , "age"
     , "infection_risk"
     , "culturing_ratio"
@@ -55,6 +72,17 @@ SENIC <-
     , "available_facilities_and_services"
     )
   )
+
+# Modify the data to make analysis easier
+SENIC[["medical_school_affiliation"]] <-
+  as.integer(SENIC[["medical_school_affiliation"]] == 1)
+
+SENIC[["region"]] <-
+  factor(x = SENIC[["region"]],
+         levels = 1:4,
+         labels = c("North-East", "North-Central", "South", "West"))
+
+head(SENIC)
 ```
 
 
