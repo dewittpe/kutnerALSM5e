@@ -21,8 +21,9 @@ TESTS     = $(wildcard $(PKG_ROOT)/tests/*.R)
 ## Vignettes
 # These are both targets for building and dependencies for the package tar.gz
 # file
-VIGNETTES  = $(PKG_ROOT)/vignettes/kutnerALSM5e-00-preface.Rmd
-VIGNETTES  = $(PKG_ROOT)/vignettes/kutnerALSM5e-Appendix-C-Data-Sets.Rmd
+VIGNETTES  = $(PKG_ROOT)/vignettes/kutnerALSM5e-00-preface.Rmd\
+    $(PKG_ROOT)/vignettes/kutnerALSM5e-01-Linear-Regression-with-One-Predictor-Variable.Rmd\
+		$(PKG_ROOT)/vignettes/kutnerALSM5e-Appendix-C-Data-Sets.Rmd
 
 ################################################################################
 # Recipes
