@@ -24,9 +24,6 @@ TESTS     = $(wildcard $(PKG_ROOT)/tests/*.R)
 VIGNETTES  = $(PKG_ROOT)/vignettes/kutnerALSM5e-00-preface.Rmd
 VIGNETTES  = $(PKG_ROOT)/vignettes/kutnerALSM5e-Appendix-C-Data-Sets.Rmd
 
-## Data targets
-DATATARGETS  = $(PKG_ROOT)/data/SENIC.rda
-
 ################################################################################
 # Recipes
 
@@ -44,7 +41,7 @@ $(PKG_NAME)_$(PKG_VERSION).tar.gz: .install_dev_deps.Rout .document.Rout $(VIGNE
 		-e "devtools::install_dev_deps()"
 	touch $@
 
-.document.Rout: $(SRC) $(RFILES) $(DATATARGETS) $(EXAMPLES) $(PKG_ROOT)/DESCRIPTION
+.document.Rout: $(SRC) $(RFILES) $(EXAMPLES) $(PKG_ROOT)/DESCRIPTION
 	Rscript --vanilla --quiet -e "options(warn = 2)" \
 		-e "devtools::document('$(PKG_ROOT)')"
 	touch $@
@@ -59,12 +56,6 @@ $(PKG_NAME)_$(PKG_VERSION).tar.gz: .install_dev_deps.Rout .document.Rout $(VIGNE
 $(PKG_ROOT)/vignettes/%.Rmd : $(PKG_ROOT)/vignette-spinners/%.R
 	R --vanilla --quiet -e "knitr::spin(hair = '$<', knit = FALSE)"
 	mv $(basename $<).Rmd $@
-
-################################################################################
-# Data Sets
-#
-$(DATATARGETS) &: vignette-spinners/kutnerALSM5e-Appendix-C-Data-Sets.R
-	Rscript --vanilla --quiet $<
 
 ################################################################################
 # Other Recipes for checking the package, (un)installing, and cleaning the

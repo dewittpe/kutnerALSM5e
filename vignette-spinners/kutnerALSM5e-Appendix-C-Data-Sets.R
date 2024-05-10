@@ -65,8 +65,4 @@ SENIC <-
 #+ label = "sessioninfo"
 sessionInfo()
 
-# /* ------------------------ Export the data set ------------------------------
-save(SENIC, file = "data/SENIC.rda")
-# */
-
 # /* ---------------------------- END OF FILE ------------------------------- */
